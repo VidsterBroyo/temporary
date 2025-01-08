@@ -184,7 +184,7 @@ function Simvest() {
 
     const fetchStockPriceData = async (ticker: string) => {
         const stockPriceData = await axios.get(
-            `https://financialmodelingprep.com/api/v3/historical-price-full/${ticker}?apikey=aa6917239e15c8c237871755eb08dda3`
+            `https://financialmodelingprep.com/api/v3/historical-price-full/${ticker}?apikey=[REDACTED]`
         );
         let prices: Float32List = [];
         let dates: Array<string> = [];
@@ -200,7 +200,7 @@ function Simvest() {
 
     const fetchCurrentPrice = async (ticker: string) => {
         const stockPriceData = await axios.get(
-            `https://financialmodelingprep.com/api/v3/quote-short/${ticker}?apikey=aa6917239e15c8c237871755eb08dda3`
+            `https://financialmodelingprep.com/api/v3/quote-short/${ticker}?apikey=[REDACTED]`
         );
 
         return (stockPriceData.data[0].price)
@@ -628,7 +628,7 @@ function Simvest() {
 
                 // get data for first ticker 
                 const historicalStockPriceData = await axios.get(
-                    `https://financialmodelingprep.com/api/v3/historical-chart/1day/${tickers[0]}?from=${previousTime.toISOString().slice(0, 10)}&to=${currentTime.toISOString().slice(0, 10)}&apikey=aa6917239e15c8c237871755eb08dda3`
+                    `https://financialmodelingprep.com/api/v3/historical-chart/1day/${tickers[0]}?from=${previousTime.toISOString().slice(0, 10)}&to=${currentTime.toISOString().slice(0, 10)}&apikey=[REDACTED]`
                 );
 
                 // iterate through the first ticker's dates and add their info to the newInvestmentData
@@ -646,7 +646,7 @@ function Simvest() {
                 // iterate through the rest of the tickers, add their price to the corresponding dates
                 for (let i = 1; i < tickers.length; i++) {
                     let historicalStockPriceData = await axios.get(
-                        `https://financialmodelingprep.com/api/v3/historical-chart/1day/${tickers[i]}?from=${previousTime.toISOString().slice(0, 10)}&to=${currentTime.toISOString().slice(0, 10)}&apikey=aa6917239e15c8c237871755eb08dda3`
+                        `https://financialmodelingprep.com/api/v3/historical-chart/1day/${tickers[i]}?from=${previousTime.toISOString().slice(0, 10)}&to=${currentTime.toISOString().slice(0, 10)}&apikey=[REDACTED]`
                     );
 
                     let data = historicalStockPriceData.data
